@@ -1,0 +1,88 @@
+ Percent |	Source code & Disassembly of sensor_O3 for cycles:P (683 samples, percent: local period)
+--------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000001fc0 <smooth>:
+         : 6    }
+         : 7    }
+         :
+         : 9    __attribute__((noinline))
+         : 10   void smooth(const float *restrict in, float *restrict out, int n)
+         : 11   {
+    0.00 :   1fc0:   endbr64
+    0.00 :   1fc4:   mov    rax,rdi
+    0.00 :   1fc7:   movsxd rdi,edx
+    0.00 :   1fca:   mov    rcx,rsi
+         : 16   out[0] = in[0];
+    0.00 :   1fcd:   movss  xmm0,DWORD PTR [rax]
+    0.15 :   1fd1:   movss  DWORD PTR [rsi],xmm0
+         : 19   for (int i = 1; i < n - 1; i++)
+    0.00 :   1fd5:   cmp    edi,0x2
+    0.00 :   1fd8:   jle    20b5 <smooth+0xf5>
+    0.00 :   1fde:   lea    edx,[rdi-0x3]
+    0.00 :   1fe1:   lea    esi,[rdi-0x2]
+    0.00 :   1fe4:   cmp    edx,0x2
+    0.00 :   1fe7:   jbe    20c6 <smooth+0x106>
+    0.00 :   1fed:   mov    r8d,esi
+    0.00 :   1ff0:   movss  xmm1,DWORD PTR [rip+0x1498]        # 3490 <_IO_stdin_used+0x490>
+    0.00 :   1ff8:   xor    edx,edx
+    0.00 :   1ffa:   shr    r8d,0x2
+    0.00 :   1ffe:   shl    r8,0x4
+    0.00 :   2002:   shufps xmm1,xmm1,0x0
+    0.00 :   2006:   cs nop WORD PTR [rax+rax*1+0x0]
+         : 33   out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2010:   movups xmm0,XMMWORD PTR [rax+rdx*1]
+    3.08 :   2014:   movups xmm2,XMMWORD PTR [rax+rdx*1+0x4]
+    0.00 :   2019:   movups xmm3,XMMWORD PTR [rax+rdx*1+0x8]
+    0.00 :   201e:   addps  xmm0,xmm2
+    1.31 :   2021:   addps  xmm0,xmm3
+    4.24 :   2024:   divps  xmm0,xmm1
+   82.58 :   2027:   movups XMMWORD PTR [rcx+rdx*1+0x4],xmm0
+         : 41   for (int i = 1; i < n - 1; i++)
+    7.89 :   202c:   add    rdx,0x10
+    0.30 :   2030:   cmp    rdx,r8
+    0.44 :   2033:   jne    2010 <smooth+0x50>
+    0.00 :   2035:   test   sil,0x3
+    0.00 :   2039:   je     20b5 <smooth+0xf5>
+    0.00 :   203b:   and    esi,0xfffffffc
+    0.00 :   203e:   lea    edx,[rsi+0x1]
+    0.00 :   2041:   mov    r8d,edi
+    0.00 :   2044:   sub    r8d,esi
+    0.00 :   2047:   lea    r9d,[r8-0x2]
+    0.00 :   204b:   cmp    r8d,0x3
+    0.00 :   204f:   je     208c <smooth+0xcc>
+    0.00 :   2051:   lea    r8,[rsi*4+0x0]
+         : 55   out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2059:   movq   xmm0,QWORD PTR [rax+rsi*4]
+    0.00 :   205e:   movq   xmm1,QWORD PTR [rax+r8*1+0x4]
+    0.00 :   2065:   addps  xmm0,xmm1
+    0.00 :   2068:   movq   xmm1,QWORD PTR [rax+r8*1+0x8]
+    0.00 :   206f:   addps  xmm0,xmm1
+    0.00 :   2072:   divps  xmm0,XMMWORD PTR [rip+0x1417]        # 3490 <_IO_stdin_used+0x490>
+    0.00 :   2079:   movlps QWORD PTR [rcx+r8*1+0x4],xmm0
+         : 63   for (int i = 1; i < n - 1; i++)
+    0.00 :   207f:   test   r9b,0x1
+    0.00 :   2083:   je     20b5 <smooth+0xf5>
+    0.00 :   2085:   and    r9d,0xfffffffe
+    0.00 :   2089:   add    edx,r9d
+         : 68   out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   208c:   movsxd rdx,edx
+    0.00 :   208f:   lea    rsi,[rdx*4+0x0]
+    0.00 :   2097:   movss  xmm0,DWORD PTR [rax+rsi*1-0x4]
+    0.00 :   209d:   addss  xmm0,DWORD PTR [rax+rdx*4]
+    0.00 :   20a2:   addss  xmm0,DWORD PTR [rax+rsi*1+0x4]
+    0.00 :   20a8:   divss  xmm0,DWORD PTR [rip+0x13e0]        # 3490 <_IO_stdin_used+0x490>
+    0.00 :   20b0:   movss  DWORD PTR [rcx+rdx*4],xmm0
+         : 76   out[n - 1] = in[n - 1];
+    0.00 :   20b5:   shl    rdi,0x2
+    0.00 :   20b9:   movss  xmm0,DWORD PTR [rax+rdi*1-0x4]
+    0.00 :   20bf:   movss  DWORD PTR [rcx+rdi*1-0x4],xmm0
+         : 80   }
+    0.00 :   20c5:   ret
+         : 82   for (int i = 1; i < n - 1; i++)
+    0.00 :   20c6:   xor    esi,esi
+    0.00 :   20c8:   mov    edx,0x1
+    0.00 :   20cd:   jmp    2041 <smooth+0x81>

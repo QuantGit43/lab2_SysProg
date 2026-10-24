@@ -1,0 +1,5 @@
+збірка   інстр    xmm    ymm    zmm    *ss    *ps    div    mul k-маски
+sensor_O0          64     12      0      0     12      0      1      0        0
+sensor_O3          64     25      0      0     10     12      3      0        0
+sensor_native     230     90      5      6     47     45     16      0        0
+sensor_fast       240    103      5      6     71     34      0     16        0

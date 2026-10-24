@@ -1,0 +1,583 @@
+src/sensor.c:26:16: missed: statement clobbers memory: p_7 = malloc (_2);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __builtin_fwrite ("\xd0\x9d\xd0\xb5 \xd0\xb2\xd0\xb8\xd1\x81\xd1\x82\xd0\xb0\xd1\x87\xd0\xb0\xd1\x94 \xd0\xbf\xd0\xb0\xd0\xbc\'\xd1\x8f\xd1\x82\xd1\x96\n", 1, 36, stderr.10_3);
+src/sensor.c:29:9: missed: statement clobbers memory: exit (1);
+src/sensor.c:29:9: note: ***** Analysis failed with vector mode V8DI
+src/sensor.c:29:9: note: ***** Skipping vector mode V64QI, which would repeat the analysis for V8DI
+src/sensor.c:45:23: missed: couldn't vectorize loop
+src/sensor.c:38:15: missed: not vectorized: unsupported use in stmt.
+src/sensor.c:43:6: note: vectorized 0 loops in function.
+src/sensor.c:48:29: note: ***** Analysis failed with vector mode V16SI
+src/sensor.c:48:29: note: ***** The result for vector mode V64QI would be the same
+src/sensor.c:48:29: note: ***** Re-trying analysis with vector mode V32QI
+src/sensor.c:48:29: note: ***** Analysis failed with vector mode V32QI
+src/sensor.c:48:29: note: ***** Re-trying analysis with vector mode V16QI
+src/sensor.c:48:29: note: ***** Analysis failed with vector mode V16QI
+src/sensor.c:48:29: note: ***** Re-trying analysis with vector mode V8QI
+src/sensor.c:48:29: note: ***** Analysis failed with vector mode V8QI
+src/sensor.c:48:29: note: ***** Re-trying analysis with vector mode V4QI
+src/sensor.c:48:29: note: ***** Analysis failed with vector mode V4QI
+src/sensor.c:56:23: optimized: loop vectorized using 64 byte vectors
+src/sensor.c:56:23: optimized: loop vectorized using 32 byte vectors
+src/sensor.c:53:6: note: vectorized 1 loops in function.
+src/sensor.c:57:16: note: ***** Analysis succeeded with vector mode V16SF
+src/sensor.c:57:16: note: SLPing BB part
+src/sensor.c:57:16: note: Costing subgraph: 
+src/sensor.c:57:16: note: node 0x31402448 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_307 = _308;
+src/sensor.c:57:16: note: 	stmt 0 *_307 = _308;
+src/sensor.c:57:16: note: 	stmt 1 *_325 = _326;
+src/sensor.c:57:16: note: 	children 0x314024c8
+src/sensor.c:57:16: note: node 0x314024c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _308 = _306 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _308 = _306 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _326 = _324 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31402548 0x314027c8
+src/sensor.c:57:16: note: node 0x31402548 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _306 = _153 + _305;
+src/sensor.c:57:16: note: 	stmt 0 _306 = _153 + _305;
+src/sensor.c:57:16: note: 	stmt 1 _324 = _303 + _323;
+src/sensor.c:57:16: note: 	children 0x314025c8 0x31402648
+src/sensor.c:57:16: note: node 0x314025c8 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _153 = *_3;
+src/sensor.c:57:16: note: 	stmt 0 _153 = *_3;
+src/sensor.c:57:16: note: 	stmt 1 _303 = *_302;
+src/sensor.c:57:16: note: node 0x31402648 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _305 = _152 + _303;
+src/sensor.c:57:16: note: 	stmt 0 _305 = _152 + _303;
+src/sensor.c:57:16: note: 	stmt 1 _323 = _153 + _321;
+src/sensor.c:57:16: note: 	children 0x314026c8 0x31402748
+src/sensor.c:57:16: note: node 0x314026c8 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _152 = MEM[(const float *)_3 + -4B];
+src/sensor.c:57:16: note: 	stmt 0 _152 = MEM[(const float *)_3 + -4B];
+src/sensor.c:57:16: note: 	stmt 1 _153 = *_3;
+src/sensor.c:57:16: note: node 0x31402748 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _303 = *_302;
+src/sensor.c:57:16: note: 	stmt 0 _303 = *_302;
+src/sensor.c:57:16: note: 	stmt 1 _321 = *_320;
+src/sensor.c:57:16: note: node (constant) 0x314027c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: Cost model analysis: 
+src/sensor.c:57:16: note: Cost model analysis for part in loop 0:
+  Vector cost: 112
+  Scalar cost: 152
+src/sensor.c:57:16: note: Costing subgraph: 
+src/sensor.c:57:16: note: node 0x31402848 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_349 = _350;
+src/sensor.c:57:16: note: 	stmt 0 *_349 = _350;
+src/sensor.c:57:16: note: 	stmt 1 *_367 = _368;
+src/sensor.c:57:16: note: 	children 0x314028c8
+src/sensor.c:57:16: note: node 0x314028c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _350 = _348 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _350 = _348 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _368 = _366 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31402bc8 0x31402ac8
+src/sensor.c:57:16: note: node (external) 0x31402bc8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _348, _366 }
+src/sensor.c:57:16: note: node (constant) 0x31402ac8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: Cost model analysis: 
+src/sensor.c:57:16: note: Cost model analysis for part in loop 0:
+  Vector cost: 44
+  Scalar cost: 56
+src/sensor.c:57:16: note: Costing subgraph: 
+src/sensor.c:57:16: note: node 0x31402c48 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_391 = _392;
+src/sensor.c:57:16: note: 	stmt 0 *_391 = _392;
+src/sensor.c:57:16: note: 	stmt 1 *_409 = _410;
+src/sensor.c:57:16: note: 	children 0x31402cc8
+src/sensor.c:57:16: note: node 0x31402cc8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _392 = _390 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _392 = _390 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _410 = _408 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31402fc8 0x31402ec8
+src/sensor.c:57:16: note: node (external) 0x31402fc8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _390, _408 }
+src/sensor.c:57:16: note: node (constant) 0x31402ec8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: Cost model analysis: 
+src/sensor.c:57:16: note: Cost model analysis for part in loop 0:
+  Vector cost: 44
+  Scalar cost: 56
+src/sensor.c:57:16: note: Costing subgraph: 
+src/sensor.c:57:16: note: node 0x31403048 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_433 = _434;
+src/sensor.c:57:16: note: 	stmt 0 *_433 = _434;
+src/sensor.c:57:16: note: 	stmt 1 *_451 = _452;
+src/sensor.c:57:16: note: 	children 0x314030c8
+src/sensor.c:57:16: note: node 0x314030c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _434 = _432 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _434 = _432 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _452 = _450 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x314033c8 0x314032c8
+src/sensor.c:57:16: note: node (external) 0x314033c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _432, _450 }
+src/sensor.c:57:16: note: node (constant) 0x314032c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: Cost model analysis: 
+src/sensor.c:57:16: note: Cost model analysis for part in loop 0:
+  Vector cost: 44
+  Scalar cost: 56
+src/sensor.c:57:16: note: Costing subgraph: 
+src/sensor.c:57:16: note: node 0x31403448 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_475 = _476;
+src/sensor.c:57:16: note: 	stmt 0 *_475 = _476;
+src/sensor.c:57:16: note: 	stmt 1 *_493 = _494;
+src/sensor.c:57:16: note: 	children 0x314034c8
+src/sensor.c:57:16: note: node 0x314034c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _476 = _474 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _476 = _474 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _494 = _492 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x314037c8 0x314036c8
+src/sensor.c:57:16: note: node (external) 0x314037c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _474, _492 }
+src/sensor.c:57:16: note: node (constant) 0x314036c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: Cost model analysis: 
+src/sensor.c:57:16: note: Cost model analysis for part in loop 0:
+  Vector cost: 44
+  Scalar cost: 56
+src/sensor.c:57:16: note: Costing subgraph: 
+src/sensor.c:57:16: note: node 0x31403848 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_517 = _518;
+src/sensor.c:57:16: note: 	stmt 0 *_517 = _518;
+src/sensor.c:57:16: note: 	stmt 1 *_535 = _536;
+src/sensor.c:57:16: note: 	children 0x314038c8
+src/sensor.c:57:16: note: node 0x314038c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _518 = _516 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _518 = _516 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _536 = _534 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31403bc8 0x31403ac8
+src/sensor.c:57:16: note: node (external) 0x31403bc8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _516, _534 }
+src/sensor.c:57:16: note: node (constant) 0x31403ac8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: Cost model analysis: 
+src/sensor.c:57:16: note: Cost model analysis for part in loop 0:
+  Vector cost: 44
+  Scalar cost: 56
+src/sensor.c:57:16: note: Costing subgraph: 
+src/sensor.c:57:16: note: node 0x31403c48 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_111 = _112;
+src/sensor.c:57:16: note: 	stmt 0 *_111 = _112;
+src/sensor.c:57:16: note: 	stmt 1 *_172 = _173;
+src/sensor.c:57:16: note: 	children 0x31403cc8
+src/sensor.c:57:16: note: node 0x31403cc8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _112 = _110 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _112 = _110 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _173 = _171 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31403d48 0x314040c8
+src/sensor.c:57:16: note: node 0x31403d48 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _110 = _109 + _531;
+src/sensor.c:57:16: note: 	stmt 0 _110 = _109 + _531;
+src/sensor.c:57:16: note: 	stmt 1 _171 = _108 + _170;
+src/sensor.c:57:16: note: 	children 0x31403e48 0x31404048
+src/sensor.c:57:16: note: node 0x31403e48 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _109 = _108 + _513;
+src/sensor.c:57:16: note: 	stmt 0 _109 = _108 + _513;
+src/sensor.c:57:16: note: 	stmt 1 _170 = _168 + _531;
+src/sensor.c:57:16: note: 	children 0x31403ec8 0x31403f48
+src/sensor.c:57:16: note: node 0x31403ec8 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _108 = *_107;
+src/sensor.c:57:16: note: 	stmt 0 _108 = *_107;
+src/sensor.c:57:16: note: 	stmt 1 _168 = *_167;
+src/sensor.c:57:16: note: node 0x31403f48 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _513 = *_512;
+src/sensor.c:57:16: note: 	stmt 0 _513 = *_512;
+src/sensor.c:57:16: note: 	stmt 1 _531 = *_530;
+src/sensor.c:57:16: note: node (external) 0x31404048 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _531, _108 }
+src/sensor.c:57:16: note: node (constant) 0x314040c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: Cost model analysis: 
+src/sensor.c:57:16: note: Cost model analysis for part in loop 0:
+  Vector cost: 100
+  Scalar cost: 140
+src/sensor.c:57:16: note: Basic block will be vectorized using SLP
+src/sensor.c:57:16: note: Vectorizing SLP tree:
+src/sensor.c:57:16: note: node 0x31402448 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_307 = _308;
+src/sensor.c:57:16: note: 	stmt 0 *_307 = _308;
+src/sensor.c:57:16: note: 	stmt 1 *_325 = _326;
+src/sensor.c:57:16: note: 	children 0x314024c8
+src/sensor.c:57:16: note: node 0x314024c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _308 = _306 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _308 = _306 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _326 = _324 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31402548 0x314027c8
+src/sensor.c:57:16: note: node 0x31402548 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _306 = _153 + _305;
+src/sensor.c:57:16: note: 	stmt 0 _306 = _153 + _305;
+src/sensor.c:57:16: note: 	stmt 1 _324 = _303 + _323;
+src/sensor.c:57:16: note: 	children 0x314025c8 0x31402648
+src/sensor.c:57:16: note: node 0x314025c8 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _153 = *_3;
+src/sensor.c:57:16: note: 	stmt 0 _153 = *_3;
+src/sensor.c:57:16: note: 	stmt 1 _303 = *_302;
+src/sensor.c:57:16: note: node 0x31402648 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _305 = _152 + _303;
+src/sensor.c:57:16: note: 	stmt 0 _305 = _152 + _303;
+src/sensor.c:57:16: note: 	stmt 1 _323 = _153 + _321;
+src/sensor.c:57:16: note: 	children 0x314026c8 0x31402748
+src/sensor.c:57:16: note: node 0x314026c8 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _152 = MEM[(const float *)_3 + -4B];
+src/sensor.c:57:16: note: 	stmt 0 _152 = MEM[(const float *)_3 + -4B];
+src/sensor.c:57:16: note: 	stmt 1 _153 = *_3;
+src/sensor.c:57:16: note: node 0x31402748 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _303 = *_302;
+src/sensor.c:57:16: note: 	stmt 0 _303 = *_302;
+src/sensor.c:57:16: note: 	stmt 1 _321 = *_320;
+src/sensor.c:57:16: note: node (constant) 0x314027c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _153 = *_3;
+src/sensor.c:57:16: note: transform load. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: const vector(2) float  vectorizing a pointer ref: *_3
+src/sensor.c:57:16: note: created vectp.93_130
+src/sensor.c:57:16: note: add new stmt: vect__153.94_137 = MEM <const vector(2) float> [(const float *)vectp.93_130];
+src/sensor.c:57:16: note: add new stmt: vectp.93_144 = vectp.93_130 + 8;
+src/sensor.c:57:16: note: extracting lane for live stmt _303 = *_302;
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _152 = MEM[(const float *)_3 + -4B];
+src/sensor.c:57:16: note: transform load. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: const vector(2) float  vectorizing a pointer ref: MEM[(const float *)_3 + -4B]
+src/sensor.c:57:16: note: created vectp.96_295
+src/sensor.c:57:16: note: add new stmt: vect__152.97_296 = MEM <const vector(2) float> [(const float *)vectp.96_295];
+src/sensor.c:57:16: note: add new stmt: vectp.96_337 = vectp.96_295 + 8;
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _303 = *_302;
+src/sensor.c:57:16: note: transform load. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: const vector(2) float  vectorizing a pointer ref: *_302
+src/sensor.c:57:16: note: created vectp.99_338
+src/sensor.c:57:16: note: add new stmt: vect__303.100_340 = MEM <const vector(2) float> [(const float *)vectp.99_338];
+src/sensor.c:57:16: note: add new stmt: vectp.99_355 = vectp.99_338 + 8;
+src/sensor.c:57:16: note: extracting lane for live stmt _303 = *_302;
+src/sensor.c:57:16: note: extracting lane for live stmt _321 = *_320;
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _305 = _152 + _303;
+src/sensor.c:57:16: note: vect_is_simple_use: operand MEM[(const float *)_3 + -4B], type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand *_302, type of def: internal
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__305.101_379 = vect__152.97_296 + vect__303.100_340;
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _306 = _153 + _305;
+src/sensor.c:57:16: note: vect_is_simple_use: operand *_3, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand _152 + _303, type of def: internal
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__306.102_380 = vect__153.94_137 + vect__305.101_379;
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _308 = _306 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _153 + _305, type of def: internal
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__308.103_382 = vect__306.102_380 * { 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 };
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: *_307 = _308;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _306 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand _324 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: transform store. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: *_307
+src/sensor.c:57:16: note: created vectp.105_397
+src/sensor.c:57:16: note: add new stmt: MEM <vector(2) float> [(float *)vectp.105_397] = vect__308.103_382;
+src/sensor.c:57:16: note: vectorizing stmts using SLP.
+src/sensor.c:57:16: optimized: basic block part vectorized using 64 byte vectors
+src/sensor.c:57:16: note: Vectorizing SLP tree:
+src/sensor.c:57:16: note: node 0x31402848 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_349 = _350;
+src/sensor.c:57:16: note: 	stmt 0 *_349 = _350;
+src/sensor.c:57:16: note: 	stmt 1 *_367 = _368;
+src/sensor.c:57:16: note: 	children 0x314028c8
+src/sensor.c:57:16: note: node 0x314028c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _350 = _348 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _350 = _348 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _368 = _366 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31402bc8 0x31402ac8
+src/sensor.c:57:16: note: node (external) 0x31402bc8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _348, _366 }
+src/sensor.c:57:16: note: node (constant) 0x31402ac8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _350 = _348 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__350.106_421 = _400 * { 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 };
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: *_349 = _350;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _348 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand _366 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: transform store. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: *_349
+src/sensor.c:57:16: note: created vectp.108_422
+src/sensor.c:57:16: note: add new stmt: MEM <vector(2) float> [(float *)vectp.108_422] = vect__350.106_421;
+src/sensor.c:57:16: note: vectorizing stmts using SLP.
+src/sensor.c:57:16: optimized: basic block part vectorized using 64 byte vectors
+src/sensor.c:57:16: note: Vectorizing SLP tree:
+src/sensor.c:57:16: note: node 0x31402c48 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_391 = _392;
+src/sensor.c:57:16: note: 	stmt 0 *_391 = _392;
+src/sensor.c:57:16: note: 	stmt 1 *_409 = _410;
+src/sensor.c:57:16: note: 	children 0x31402cc8
+src/sensor.c:57:16: note: node 0x31402cc8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _392 = _390 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _392 = _390 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _410 = _408 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31402fc8 0x31402ec8
+src/sensor.c:57:16: note: node (external) 0x31402fc8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _390, _408 }
+src/sensor.c:57:16: note: node (constant) 0x31402ec8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _392 = _390 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__392.109_440 = _439 * { 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 };
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: *_391 = _392;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _390 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand _408 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: transform store. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: *_391
+src/sensor.c:57:16: note: created vectp.111_442
+src/sensor.c:57:16: note: add new stmt: MEM <vector(2) float> [(float *)vectp.111_442] = vect__392.109_440;
+src/sensor.c:57:16: note: vectorizing stmts using SLP.
+src/sensor.c:57:16: optimized: basic block part vectorized using 64 byte vectors
+src/sensor.c:57:16: note: Vectorizing SLP tree:
+src/sensor.c:57:16: note: node 0x31403048 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_433 = _434;
+src/sensor.c:57:16: note: 	stmt 0 *_433 = _434;
+src/sensor.c:57:16: note: 	stmt 1 *_451 = _452;
+src/sensor.c:57:16: note: 	children 0x314030c8
+src/sensor.c:57:16: note: node 0x314030c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _434 = _432 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _434 = _432 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _452 = _450 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x314033c8 0x314032c8
+src/sensor.c:57:16: note: node (external) 0x314033c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _432, _450 }
+src/sensor.c:57:16: note: node (constant) 0x314032c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _434 = _432 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__434.112_466 = _464 * { 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 };
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: *_433 = _434;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _432 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand _450 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: transform store. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: *_433
+src/sensor.c:57:16: note: created vectp.114_481
+src/sensor.c:57:16: note: add new stmt: MEM <vector(2) float> [(float *)vectp.114_481] = vect__434.112_466;
+src/sensor.c:57:16: note: vectorizing stmts using SLP.
+src/sensor.c:57:16: optimized: basic block part vectorized using 64 byte vectors
+src/sensor.c:57:16: note: Vectorizing SLP tree:
+src/sensor.c:57:16: note: node 0x31403448 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_475 = _476;
+src/sensor.c:57:16: note: 	stmt 0 *_475 = _476;
+src/sensor.c:57:16: note: 	stmt 1 *_493 = _494;
+src/sensor.c:57:16: note: 	children 0x314034c8
+src/sensor.c:57:16: note: node 0x314034c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _476 = _474 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _476 = _474 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _494 = _492 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x314037c8 0x314036c8
+src/sensor.c:57:16: note: node (external) 0x314037c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _474, _492 }
+src/sensor.c:57:16: note: node (constant) 0x314036c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _476 = _474 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__476.115_505 = _484 * { 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 };
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: *_475 = _476;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _474 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand _492 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: transform store. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: *_475
+src/sensor.c:57:16: note: created vectp.117_506
+src/sensor.c:57:16: note: add new stmt: MEM <vector(2) float> [(float *)vectp.117_506] = vect__476.115_505;
+src/sensor.c:57:16: note: vectorizing stmts using SLP.
+src/sensor.c:57:16: optimized: basic block part vectorized using 64 byte vectors
+src/sensor.c:57:16: note: Vectorizing SLP tree:
+src/sensor.c:57:16: note: node 0x31403848 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_517 = _518;
+src/sensor.c:57:16: note: 	stmt 0 *_517 = _518;
+src/sensor.c:57:16: note: 	stmt 1 *_535 = _536;
+src/sensor.c:57:16: note: 	children 0x314038c8
+src/sensor.c:57:16: note: node 0x314038c8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _518 = _516 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _518 = _516 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _536 = _534 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31403bc8 0x31403ac8
+src/sensor.c:57:16: note: node (external) 0x31403bc8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _516, _534 }
+src/sensor.c:57:16: note: node (constant) 0x31403ac8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _518 = _516 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__518.118_524 = _523 * { 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 };
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: *_517 = _518;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _516 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand _534 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: transform store. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: *_517
+src/sensor.c:57:16: note: created vectp.120_526
+src/sensor.c:57:16: note: add new stmt: MEM <vector(2) float> [(float *)vectp.120_526] = vect__518.118_524;
+src/sensor.c:57:16: note: vectorizing stmts using SLP.
+src/sensor.c:57:16: optimized: basic block part vectorized using 64 byte vectors
+src/sensor.c:57:16: note: Vectorizing SLP tree:
+src/sensor.c:57:16: note: node 0x31403c48 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: *_111 = _112;
+src/sensor.c:57:16: note: 	stmt 0 *_111 = _112;
+src/sensor.c:57:16: note: 	stmt 1 *_172 = _173;
+src/sensor.c:57:16: note: 	children 0x31403cc8
+src/sensor.c:57:16: note: node 0x31403cc8 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _112 = _110 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 0 _112 = _110 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	stmt 1 _173 = _171 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: 	children 0x31403d48 0x314040c8
+src/sensor.c:57:16: note: node 0x31403d48 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _110 = _109 + _531;
+src/sensor.c:57:16: note: 	stmt 0 _110 = _109 + _531;
+src/sensor.c:57:16: note: 	stmt 1 _171 = _108 + _170;
+src/sensor.c:57:16: note: 	children 0x31403e48 0x31404048
+src/sensor.c:57:16: note: node 0x31403e48 (max_nunits=2, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: op template: _109 = _108 + _513;
+src/sensor.c:57:16: note: 	stmt 0 _109 = _108 + _513;
+src/sensor.c:57:16: note: 	stmt 1 _170 = _168 + _531;
+src/sensor.c:57:16: note: 	children 0x31403ec8 0x31403f48
+src/sensor.c:57:16: note: node 0x31403ec8 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _108 = *_107;
+src/sensor.c:57:16: note: 	stmt 0 _108 = *_107;
+src/sensor.c:57:16: note: 	stmt 1 _168 = *_167;
+src/sensor.c:57:16: note: node 0x31403f48 (max_nunits=2, refcnt=1) const vector(2) float
+src/sensor.c:57:16: note: op template: _513 = *_512;
+src/sensor.c:57:16: note: 	stmt 0 _513 = *_512;
+src/sensor.c:57:16: note: 	stmt 1 _531 = *_530;
+src/sensor.c:57:16: note: node (external) 0x31404048 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ _531, _108 }
+src/sensor.c:57:16: note: node (constant) 0x314040c8 (max_nunits=1, refcnt=1) vector(2) float
+src/sensor.c:57:16: note: 	{ 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 }
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _108 = *_107;
+src/sensor.c:57:16: note: transform load. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: const vector(2) float  vectorizing a pointer ref: *_107
+src/sensor.c:57:16: note: created vectp.122_101
+src/sensor.c:57:16: note: add new stmt: vect__108.123_103 = MEM <const vector(2) float> [(const float *)vectp.122_101];
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _513 = *_512;
+src/sensor.c:57:16: note: transform load. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: const vector(2) float  vectorizing a pointer ref: *_512
+src/sensor.c:57:16: note: created vectp.125_160
+src/sensor.c:57:16: note: add new stmt: vect__513.126_161 = MEM <const vector(2) float> [(const float *)vectp.125_160];
+src/sensor.c:57:16: note: extracting lane for live stmt _531 = *_530;
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _109 = _108 + _513;
+src/sensor.c:57:16: note: vect_is_simple_use: operand *_107, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand *_512, type of def: internal
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__109.127_177 = vect__108.123_103 + vect__513.126_161;
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _110 = _109 + _531;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _108 + _513, type of def: internal
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__110.128_115 = vect__109.127_177 + _92;
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: _112 = _110 * 3.333333432674407958984375e-1;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _109 + _531, type of def: internal
+src/sensor.c:57:16: note: transform binary/unary operation.
+src/sensor.c:57:16: note: add new stmt: vect__112.129_84 = vect__110.128_115 * { 3.333333432674407958984375e-1, 3.333333432674407958984375e-1 };
+src/sensor.c:57:16: note: ------>vectorizing SLP node starting from: *_111 = _112;
+src/sensor.c:57:16: note: vect_is_simple_use: operand _110 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: vect_is_simple_use: operand _171 * 3.333333432674407958984375e-1, type of def: internal
+src/sensor.c:57:16: note: transform store. ncopies = 1
+src/sensor.c:57:16: note: create vector_type-pointer variable to type: vector(2) float  vectorizing a pointer ref: *_111
+src/sensor.c:57:16: note: created vectp.131_43
+src/sensor.c:57:16: note: add new stmt: MEM <vector(2) float> [(float *)vectp.131_43] = vect__112.129_84;
+src/sensor.c:57:16: note: vectorizing stmts using SLP.
+src/sensor.c:57:16: optimized: basic block part vectorized using 64 byte vectors
+src/sensor.c:57:16: note: ***** The result for vector mode V64QI would be the same
+src/sensor.c:65:23: missed: couldn't vectorize loop
+src/sensor.c:66:9: missed: statement clobbers memory: smooth (a_17, b_19, n_3(D));
+src/sensor.c:62:14: note: vectorized 0 loops in function.
+src/sensor.c:64:5: missed: statement clobbers memory: smooth (noisy_1(D), a_2(D), n_3(D));
+src/sensor.c:66:9: missed: statement clobbers memory: smooth (a_17, b_19, n_3(D));
+src/sensor.c:71:12: note: ***** Analysis failed with vector mode VOID
+src/sensor.c:65:23: missed: couldn't vectorize loop
+src/sensor.c:66:9: missed: statement clobbers memory: smooth (a_18, b_20, n_8(D));
+src/sensor.c:62:14: note: vectorized 0 loops in function.
+src/sensor.c:64:5: missed: statement clobbers memory: smooth (noisy_6(D), a_7(D), n_8(D));
+src/sensor.c:66:9: missed: statement clobbers memory: smooth (a_18, b_20, n_8(D));
+src/sensor.c:71:12: note: ***** Analysis failed with vector mode VOID
+src/sensor.c:78:23: missed: couldn't vectorize loop
+src/sensor.c:79:12: missed: not vectorized: unsupported use in stmt.
+src/sensor.c:75:5: note: vectorized 0 loops in function.
+src/sensor.c:86:12: note: ***** Analysis failed with vector mode V16SF
+src/sensor.c:86:12: note: ***** Skipping vector mode V64QI, which would repeat the analysis for V16SF
+src/sensor.c:94:23: optimized: loop vectorized using 64 byte vectors
+src/sensor.c:94:23: optimized: loop vectorized using 32 byte vectors
+src/sensor.c:90:6: note: vectorized 1 loops in function.
+src/sensor.c:99:13: note: ***** Analysis failed with vector mode V16SF
+src/sensor.c:99:13: note: ***** The result for vector mode V64QI would be the same
+src/sensor.c:99:13: note: ***** Re-trying analysis with vector mode V32QI
+src/sensor.c:99:13: note: ***** Analysis failed with vector mode V32QI
+src/sensor.c:99:13: note: ***** Re-trying analysis with vector mode V16QI
+src/sensor.c:99:13: note: ***** Analysis failed with vector mode V16QI
+src/sensor.c:99:13: note: ***** Re-trying analysis with vector mode V8QI
+src/sensor.c:99:13: note: ***** Analysis failed with vector mode V8QI
+src/sensor.c:99:13: note: ***** Re-trying analysis with vector mode V4QI
+src/sensor.c:99:13: note: ***** Analysis failed with vector mode V4QI
+src/sensor.c:110:23: optimized: loop vectorized using 64 byte vectors
+src/sensor.c:110:23: optimized: loop vectorized using 32 byte vectors
+src/sensor.c:107:8: note: vectorized 1 loops in function.
+src/sensor.c:112:13: note: ***** Analysis failed with vector mode V16SF
+src/sensor.c:112:13: note: ***** The result for vector mode V64QI would be the same
+src/sensor.c:112:13: note: ***** Re-trying analysis with vector mode V32QI
+src/sensor.c:112:13: note: ***** Analysis failed with vector mode V32QI
+src/sensor.c:112:13: note: ***** Re-trying analysis with vector mode V16QI
+src/sensor.c:112:13: note: ***** Analysis failed with vector mode V16QI
+src/sensor.c:112:13: note: ***** Re-trying analysis with vector mode V8QI
+src/sensor.c:112:13: note: ***** Analysis failed with vector mode V8QI
+src/sensor.c:112:13: note: ***** Re-trying analysis with vector mode V4QI
+src/sensor.c:112:13: note: ***** Analysis failed with vector mode V4QI
+src/sensor.c:137:23: missed: couldn't vectorize loop
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __fprintf_chk (f_209, 2, "%.3f,%.5f,%.5f,%.5f\n", _224, _221, _218, _215);
+src/sensor.c:184:23: optimized: loop vectorized using 64 byte vectors
+src/sensor.c:184:23: optimized: loop vectorized using 32 byte vectors
+src/sensor.c:166:27: missed: couldn't vectorize loop
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:124:9: missed: couldn't vectorize loop
+src/sensor.c:124:9: missed: not vectorized: control flow in loop.
+src/sensor.c:120:23: optimized: loop vectorized using 64 byte vectors
+src/sensor.c:142:5: note: vectorized 2 loops in function.
+/usr/include/stdlib.h:483:16: missed: statement clobbers memory: _79 = strtol (_1, 0B, 10);
+/usr/include/stdlib.h:483:16: missed: statement clobbers memory: _92 = strtol (_3, 0B, 10);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (2, &ts);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x97\xd0\xb3\xd0\xbb\xd0\xb0\xd0\xb4\xd0\xb6\xd1\x83\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xbd\xd1\x8f \xd1\x81\xd0\xb8\xd0\xb3\xd0\xbd\xd0\xb0\xd0\xbb\xd1\x83 [%s]: \xd1\x82\xd0\xbe\xd1\x87\xd0\xbe\xd0\xba = %d, \xd0\xb1\xd0\xbb\xd0\xbe\xd0\xba\xd1\x96\xd0\xb2 = %d, \xd0\xbf\xd1\x80\xd0\xbe\xd1\x85\xd0\xbe\xd0\xb4\xd1\x96\xd0\xb2 = %d\n", "sensor", iftmp.2_41, iftmp.3_40, 8);
+src/sensor.c:122:5: missed: statement clobbers memory: smooth (&in, &out, 16);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\xa1\xd0\xb0\xd0\xbc\xd0\xbe\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb5\xd0\xb2\xd1\x96\xd1\x80\xd0\xba\xd0\xb0 (\xd0\xbb\xd1\x96\xd0\xbd\xd1\x96\xd0\xb9\xd0\xbd\xd0\xb8\xd0\xb9 \xd1\x81\xd0\xb8\xd0\xb3\xd0\xbd\xd0\xb0\xd0\xbb \xd0\xbd\xd0\xb5 \xd0\xb7\xd0\xbc\xd1\x96\xd0\xbd\xd1\x8e\xd1\x94\xd1\x82\xd1\x8c\xd1\x81\xd1\x8f): %s\n", iftmp.6_49);
+src/sensor.c:156:20: missed: statement clobbers memory: clean_65 = alloc_signal (iftmp.2_41);
+src/sensor.c:156:46: missed: statement clobbers memory: noisy_67 = alloc_signal (iftmp.2_41);
+src/sensor.c:156:68: missed: statement clobbers memory: a_69 = alloc_signal (iftmp.2_41);
+src/sensor.c:156:90: missed: statement clobbers memory: b_71 = alloc_signal (iftmp.2_41);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:158:5: missed: statement clobbers memory: generate_signal (clean_65, noisy_67, iftmp.2_41);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:168:15: missed: statement clobbers memory: res_91 = filter_block.constprop (noisy_67, a_69, b_71, iftmp.2_41);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:170:17: missed: statement clobbers memory: beats_93 = count_beats (res_91, iftmp.2_41);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:172:9: missed: statement clobbers memory: signal_stats (res_91, iftmp.2_41, &mn, &mx, &mean);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:179:25: missed: statement clobbers memory: rms_before_78 = rms_error (noisy_67, clean_65, iftmp.2_41);
+src/sensor.c:180:24: missed: statement clobbers memory: rms_after_80 = rms_error (res_260, clean_65, iftmp.2_41);
+src/sensor.c:131:15: missed: statement clobbers memory: f_209 = fopen (iftmp.4_42, "w");
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __builtin_fwrite ("t,clean,noisy,smoothed\n", 1, 23, f_209);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __fprintf_chk (f_209, 2, "%.3f,%.5f,%.5f,%.5f\n", _224, _221, _218, _215);
+src/sensor.c:139:5: missed: statement clobbers memory: fclose (f_209);
+src/sensor.c:133:9: missed: statement clobbers memory: perror (iftmp.4_42);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x9f\xd1\x83\xd0\xbb\xd1\x8c\xd1\x81: %.1f \xd1\x83\xd0\xb4/\xd1\x85\xd0\xb2 (%d \xd1\x83\xd0\xb4\xd0\xb0\xd1\x80\xd1\x96\xd0\xb2 \xd0\xb7\xd0\xb0 %.1f \xd1\x81 \xd0\xb7\xd0\xb0\xd0\xbf\xd0\xb8\xd1\x81\xd1\x83)\n", bpm_82, beats_74, seconds_81);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\xa8\xd1\x83\xd0\xbc: RMS \xd0\xb4\xd0\xbe %.4f, \xd0\xbf\xd1\x96\xd1\x81\xd0\xbb\xd1\x8f %.4f (\xd1\x83 %.1f \xd1\x80\xd0\xb0\xd0\xb7\xd0\xb0 \xd0\xbc\xd0\xb5\xd0\xbd\xd1\x88\xd0\xb5)\n", rms_before_78, rms_after_80, _26);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\xa1\xd0\xb8\xd0\xb3\xd0\xbd\xd0\xb0\xd0\xbb \xd0\xbf\xd1\x96\xd1\x81\xd0\xbb\xd1\x8f \xd0\xb7\xd0\xb3\xd0\xbb\xd0\xb0\xd0\xb4\xd0\xb6\xd1\x83\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xbd\xd1\x8f: \xd0\xbc\xd1\x96\xd0\xbd. %.4f, \xd0\xbc\xd0\xb0\xd0\xba\xd1\x81. %.4f, \xd1\x81\xd0\xb5\xd1\x80\xd0\xb5\xd0\xb4\xd0\xbd\xd1\x94 %.5f\n", _31, _29, mean.7_27);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x93\xd0\xb5\xd0\xbd\xd0\xb5\xd1\x80\xd0\xb0\xd1\x86\xd1\x96\xd1\x8f \xd1\x81\xd0\xb8\xd0\xb3\xd0\xbd\xd0\xb0\xd0\xbb\xd1\x83:      %8.3f \xd1\x81\n", t_gen_73);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x97\xd0\xb3\xd0\xbb\xd0\xb0\xd0\xb4\xd0\xb6\xd1\x83\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xbd\xd1\x8f:           %8.3f \xd1\x81  (%.3f \xd0\xbd\xd1\x81/\xd1\x82\xd0\xbe\xd1\x87\xd0\xba\xd1\x83)\n", t_filter_75, _33);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x9f\xd1\x96\xd0\xb4\xd1\x80\xd0\xb0\xd1\x85\xd1\x83\xd0\xbd\xd0\xbe\xd0\xba \xd1\x83\xd0\xb4\xd0\xb0\xd1\x80\xd1\x96\xd0\xb2:      %8.3f \xd1\x81\n", t_beats_76);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\xa1\xd1\x82\xd0\xb0\xd1\x82\xd0\xb8\xd1\x81\xd1\x82\xd0\xb8\xd0\xba\xd0\xb0:             %8.3f \xd1\x81\n", t_stats_261);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x9a\xd0\xbe\xd0\xbd\xd1\x82\xd1\x80\xd0\xbe\xd0\xbb\xd1\x8c\xd0\xbd\xd0\xb0 \xd1\x81\xd1\x83\xd0\xbc\xd0\xb0:        %.6f\n", checksum_250);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (2, &ts);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "RESULT build=%s n=%d blocks=%d passes=%d gen_s=%.4f filter_s=%.4f beats_s=%.4f stats_s=%.4f total_s=%.4f cpu_s=%.4f ns_per_sample=%.4f beats=%d bpm=%.2f rms_before=%.5f rms_after=%.5f checksum=%.6f\n", "sensor", iftmp.2_41, iftmp.3_40, 8, t_gen_73, t_filter_75, t_beats_76, t_stats_261, _37, _36, _33, beats_74, bpm_82, rms_before_78, rms_after_80, checksum_250);
+src/sensor.c:205:5: missed: statement clobbers memory: free (clean_65);
+src/sensor.c:206:5: missed: statement clobbers memory: free (noisy_67);
+src/sensor.c:207:5: missed: statement clobbers memory: free (a_69);
+src/sensor.c:208:5: missed: statement clobbers memory: free (b_71);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __fprintf_chk (stderr.5_8, 2, "\xd0\x92\xd0\xb8\xd0\xba\xd0\xbe\xd1\x80\xd0\xb8\xd1\x81\xd1\x82\xd0\xb0\xd0\xbd\xd0\xbd\xd1\x8f: %s [N] [BLOCKS] [\xd1\x84\xd0\xb0\xd0\xb9\xd0\xbb.csv]\n", _7);
+src/sensor.c:147:15: note: ***** Analysis failed with vector mode V8DI
+src/sensor.c:147:15: note: ***** The result for vector mode V64QI would be the same
+src/sensor.c:147:15: note: ***** Re-trying analysis with vector mode V32QI
+src/sensor.c:147:15: note: ***** Analysis failed with vector mode V32QI
+src/sensor.c:147:15: note: ***** Re-trying analysis with vector mode V16QI
+src/sensor.c:147:15: note: ***** Analysis failed with vector mode V16QI
+src/sensor.c:147:15: note: ***** Re-trying analysis with vector mode V8QI
+src/sensor.c:147:15: note: ***** Analysis failed with vector mode V8QI
+src/sensor.c:147:15: note: ***** Re-trying analysis with vector mode V4QI
+src/sensor.c:147:15: note: ***** Analysis failed with vector mode V4QI

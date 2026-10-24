@@ -1,0 +1,107 @@
+src/sensor.c:26:16: missed: statement clobbers memory: p_7 = malloc (_2);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __builtin_fwrite ("\xd0\x9d\xd0\xb5 \xd0\xb2\xd0\xb8\xd1\x81\xd1\x82\xd0\xb0\xd1\x87\xd0\xb0\xd1\x94 \xd0\xbf\xd0\xb0\xd0\xbc\'\xd1\x8f\xd1\x82\xd1\x96\n", 1, 36, stderr.10_3);
+src/sensor.c:29:9: missed: statement clobbers memory: exit (1);
+src/sensor.c:29:9: note: ***** Analysis failed with vector mode V2DI
+src/sensor.c:29:9: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V2DI
+src/sensor.c:45:23: missed: couldn't vectorize loop
+src/sensor.c:38:15: missed: not vectorized: unsupported use in stmt.
+src/sensor.c:43:6: note: vectorized 0 loops in function.
+src/sensor.c:50:1: note: ***** Analysis failed with vector mode V4SI
+src/sensor.c:50:1: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SI
+src/sensor.c:56:23: optimized: loop vectorized using 16 byte vectors
+src/sensor.c:56:23: optimized: loop vectorized using 8 byte vectors
+src/sensor.c:53:6: note: vectorized 1 loops in function.
+src/sensor.c:59:1: note: ***** Analysis failed with vector mode V4SF
+src/sensor.c:59:1: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SF
+src/sensor.c:65:23: missed: couldn't vectorize loop
+src/sensor.c:66:9: missed: statement clobbers memory: smooth (a_17, b_19, n_3(D));
+src/sensor.c:62:14: note: vectorized 0 loops in function.
+src/sensor.c:64:5: missed: statement clobbers memory: smooth (noisy_1(D), a_2(D), n_3(D));
+src/sensor.c:66:9: missed: statement clobbers memory: smooth (a_17, b_19, n_3(D));
+src/sensor.c:71:12: note: ***** Analysis failed with vector mode VOID
+src/sensor.c:65:23: missed: couldn't vectorize loop
+src/sensor.c:66:9: missed: statement clobbers memory: smooth (a_18, b_20, n_8(D));
+src/sensor.c:62:14: note: vectorized 0 loops in function.
+src/sensor.c:64:5: missed: statement clobbers memory: smooth (noisy_6(D), a_7(D), n_8(D));
+src/sensor.c:66:9: missed: statement clobbers memory: smooth (a_18, b_20, n_8(D));
+src/sensor.c:71:12: note: ***** Analysis failed with vector mode VOID
+src/sensor.c:78:23: missed: couldn't vectorize loop
+src/sensor.c:78:23: missed: not vectorized: control flow in loop.
+src/sensor.c:75:5: note: vectorized 0 loops in function.
+src/sensor.c:86:12: note: ***** Analysis failed with vector mode V4SF
+src/sensor.c:86:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SF
+src/sensor.c:94:23: missed: couldn't vectorize loop
+src/sensor.c:90:6: missed: not vectorized: unsupported use in stmt.
+src/sensor.c:94:23: note: ***** Analysis failed with vector mode V4SF
+src/sensor.c:94:23: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SF
+src/sensor.c:90:6: note: vectorized 0 loops in function.
+src/sensor.c:104:1: note: ***** Analysis failed with vector mode V4SF
+src/sensor.c:104:1: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SF
+src/sensor.c:110:23: missed: couldn't vectorize loop
+src/sensor.c:111:21: missed: not vectorized: no vectype for stmt: _4 = *_3;
+ scalar_type: const float
+src/sensor.c:107:8: note: vectorized 0 loops in function.
+src/sensor.c:114:12: missed: statement clobbers memory: _25 = sqrt (_11);
+src/sensor.c:114:12: note: ***** Analysis failed with vector mode V4SF
+src/sensor.c:114:12: note: ***** Skipping vector mode V16QI, which would repeat the analysis for V4SF
+src/sensor.c:137:23: missed: couldn't vectorize loop
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __fprintf_chk (f_211, 2, "%.3f,%.5f,%.5f,%.5f\n", _226, _223, _220, _217);
+src/sensor.c:184:23: missed: couldn't vectorize loop
+src/sensor.c:185:24: missed: not vectorized: no vectype for stmt: _20 = *_19;
+ scalar_type: const float
+src/sensor.c:166:27: missed: couldn't vectorize loop
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:124:9: missed: couldn't vectorize loop
+src/sensor.c:124:9: missed: not vectorized: control flow in loop.
+src/sensor.c:120:23: optimized: loop vectorized using 16 byte vectors
+src/sensor.c:142:5: note: vectorized 1 loops in function.
+/usr/include/stdlib.h:483:16: missed: statement clobbers memory: _92 = strtol (_1, 0B, 10);
+/usr/include/stdlib.h:483:16: missed: statement clobbers memory: _102 = strtol (_3, 0B, 10);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (2, &ts);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x97\xd0\xb3\xd0\xbb\xd0\xb0\xd0\xb4\xd0\xb6\xd1\x83\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xbd\xd1\x8f \xd1\x81\xd0\xb8\xd0\xb3\xd0\xbd\xd0\xb0\xd0\xbb\xd1\x83 [%s]: \xd1\x82\xd0\xbe\xd1\x87\xd0\xbe\xd0\xba = %d, \xd0\xb1\xd0\xbb\xd0\xbe\xd0\xba\xd1\x96\xd0\xb2 = %d, \xd0\xbf\xd1\x80\xd0\xbe\xd1\x85\xd0\xbe\xd0\xb4\xd1\x96\xd0\xb2 = %d\n", "sensor", iftmp.2_41, iftmp.3_40, 8);
+src/sensor.c:122:5: missed: statement clobbers memory: smooth (&in, &out, 16);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\xa1\xd0\xb0\xd0\xbc\xd0\xbe\xd0\xbf\xd0\xb5\xd1\x80\xd0\xb5\xd0\xb2\xd1\x96\xd1\x80\xd0\xba\xd0\xb0 (\xd0\xbb\xd1\x96\xd0\xbd\xd1\x96\xd0\xb9\xd0\xbd\xd0\xb8\xd0\xb9 \xd1\x81\xd0\xb8\xd0\xb3\xd0\xbd\xd0\xb0\xd0\xbb \xd0\xbd\xd0\xb5 \xd0\xb7\xd0\xbc\xd1\x96\xd0\xbd\xd1\x8e\xd1\x94\xd1\x82\xd1\x8c\xd1\x81\xd1\x8f): %s\n", iftmp.6_49);
+src/sensor.c:156:20: missed: statement clobbers memory: clean_64 = alloc_signal (iftmp.2_41);
+src/sensor.c:156:46: missed: statement clobbers memory: noisy_66 = alloc_signal (iftmp.2_41);
+src/sensor.c:156:68: missed: statement clobbers memory: a_68 = alloc_signal (iftmp.2_41);
+src/sensor.c:156:90: missed: statement clobbers memory: b_70 = alloc_signal (iftmp.2_41);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:158:5: missed: statement clobbers memory: generate_signal (clean_64, noisy_66, iftmp.2_41);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:168:15: missed: statement clobbers memory: res_91 = filter_block.constprop (noisy_66, a_68, b_70, iftmp.2_41);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:170:17: missed: statement clobbers memory: beats_93 = count_beats (res_91, iftmp.2_41);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:172:9: missed: statement clobbers memory: signal_stats (res_91, iftmp.2_41, &mn, &mx, &mean);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+src/sensor.c:179:25: missed: statement clobbers memory: rms_before_77 = rms_error (noisy_66, clean_64, iftmp.2_41);
+src/sensor.c:180:24: missed: statement clobbers memory: rms_after_79 = rms_error (res_262, clean_64, iftmp.2_41);
+src/sensor.c:131:15: missed: statement clobbers memory: f_211 = fopen (iftmp.4_42, "w");
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __builtin_fwrite ("t,clean,noisy,smoothed\n", 1, 23, f_211);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __fprintf_chk (f_211, 2, "%.3f,%.5f,%.5f,%.5f\n", _226, _223, _220, _217);
+src/sensor.c:139:5: missed: statement clobbers memory: fclose (f_211);
+src/sensor.c:133:9: missed: statement clobbers memory: perror (iftmp.4_42);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x9f\xd1\x83\xd0\xbb\xd1\x8c\xd1\x81: %.1f \xd1\x83\xd0\xb4/\xd1\x85\xd0\xb2 (%d \xd1\x83\xd0\xb4\xd0\xb0\xd1\x80\xd1\x96\xd0\xb2 \xd0\xb7\xd0\xb0 %.1f \xd1\x81 \xd0\xb7\xd0\xb0\xd0\xbf\xd0\xb8\xd1\x81\xd1\x83)\n", bpm_81, beats_73, seconds_80);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\xa8\xd1\x83\xd0\xbc: RMS \xd0\xb4\xd0\xbe %.4f, \xd0\xbf\xd1\x96\xd1\x81\xd0\xbb\xd1\x8f %.4f (\xd1\x83 %.1f \xd1\x80\xd0\xb0\xd0\xb7\xd0\xb0 \xd0\xbc\xd0\xb5\xd0\xbd\xd1\x88\xd0\xb5)\n", rms_before_77, rms_after_79, _26);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\xa1\xd0\xb8\xd0\xb3\xd0\xbd\xd0\xb0\xd0\xbb \xd0\xbf\xd1\x96\xd1\x81\xd0\xbb\xd1\x8f \xd0\xb7\xd0\xb3\xd0\xbb\xd0\xb0\xd0\xb4\xd0\xb6\xd1\x83\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xbd\xd1\x8f: \xd0\xbc\xd1\x96\xd0\xbd. %.4f, \xd0\xbc\xd0\xb0\xd0\xba\xd1\x81. %.4f, \xd1\x81\xd0\xb5\xd1\x80\xd0\xb5\xd0\xb4\xd0\xbd\xd1\x94 %.5f\n", _31, _29, mean.7_27);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x93\xd0\xb5\xd0\xbd\xd0\xb5\xd1\x80\xd0\xb0\xd1\x86\xd1\x96\xd1\x8f \xd1\x81\xd0\xb8\xd0\xb3\xd0\xbd\xd0\xb0\xd0\xbb\xd1\x83:      %8.3f \xd1\x81\n", t_gen_72);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x97\xd0\xb3\xd0\xbb\xd0\xb0\xd0\xb4\xd0\xb6\xd1\x83\xd0\xb2\xd0\xb0\xd0\xbd\xd0\xbd\xd1\x8f:           %8.3f \xd1\x81  (%.3f \xd0\xbd\xd1\x81/\xd1\x82\xd0\xbe\xd1\x87\xd0\xba\xd1\x83)\n", t_filter_74, _33);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x9f\xd1\x96\xd0\xb4\xd1\x80\xd0\xb0\xd1\x85\xd1\x83\xd0\xbd\xd0\xbe\xd0\xba \xd1\x83\xd0\xb4\xd0\xb0\xd1\x80\xd1\x96\xd0\xb2:      %8.3f \xd1\x81\n", t_beats_75);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\xa1\xd1\x82\xd0\xb0\xd1\x82\xd0\xb8\xd1\x81\xd1\x82\xd0\xb8\xd0\xba\xd0\xb0:             %8.3f \xd1\x81\n", t_stats_263);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "\xd0\x9a\xd0\xbe\xd0\xbd\xd1\x82\xd1\x80\xd0\xbe\xd0\xbb\xd1\x8c\xd0\xbd\xd0\xb0 \xd1\x81\xd1\x83\xd0\xbc\xd0\xb0:        %.6f\n", checksum_252);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (2, &ts);
+src/sensor.c:20:5: missed: statement clobbers memory: clock_gettime (1, &ts);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:86:10: missed: statement clobbers memory: __printf_chk (2, "RESULT build=%s n=%d blocks=%d passes=%d gen_s=%.4f filter_s=%.4f beats_s=%.4f stats_s=%.4f total_s=%.4f cpu_s=%.4f ns_per_sample=%.4f beats=%d bpm=%.2f rms_before=%.5f rms_after=%.5f checksum=%.6f\n", "sensor", iftmp.2_41, iftmp.3_40, 8, t_gen_72, t_filter_74, t_beats_75, t_stats_263, _37, _36, _33, beats_73, bpm_81, rms_before_77, rms_after_79, checksum_252);
+src/sensor.c:205:5: missed: statement clobbers memory: free (clean_64);
+src/sensor.c:206:5: missed: statement clobbers memory: free (noisy_66);
+src/sensor.c:207:5: missed: statement clobbers memory: free (a_68);
+src/sensor.c:208:5: missed: statement clobbers memory: free (b_70);
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:79:10: missed: statement clobbers memory: __fprintf_chk (stderr.5_8, 2, "\xd0\x92\xd0\xb8\xd0\xba\xd0\xbe\xd1\x80\xd0\xb8\xd1\x81\xd1\x82\xd0\xb0\xd0\xbd\xd0\xbd\xd1\x8f: %s [N] [BLOCKS] [\xd1\x84\xd0\xb0\xd0\xb9\xd0\xbb.csv]\n", _7);
+src/sensor.c:147:15: note: ***** Analysis failed with vector mode V2DI
+src/sensor.c:147:15: note: ***** The result for vector mode V16QI would be the same
+src/sensor.c:147:15: note: ***** Re-trying analysis with vector mode V8QI
+src/sensor.c:147:15: note: ***** Analysis failed with vector mode V8QI
+src/sensor.c:147:15: note: ***** Re-trying analysis with vector mode V4QI
+src/sensor.c:147:15: note: ***** Analysis failed with vector mode V4QI

@@ -1,0 +1,12 @@
+ 54.14%  smooth
+ 37.03%  count_beats
+  7.79%  signal_stats
+  0.16%  scheduler_tick
+  0.16%  now_s
+  0.15%  rms_error
+  0.15%  __GI___clock_gettime
+  0.09%  __mod_lruvec_page_state
+  0.08%  preempt_count_sub
+  0.07%  generate_signal
+  0.06%  xas_find
+  0.05%  get_obj_cgroup_from_current

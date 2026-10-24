@@ -1,0 +1,12 @@
+ 48.09%  smooth
+ 28.97%  signal_stats
+ 22.39%  count_beats
+  0.08%  tick_sched_handle
+  0.08%  srso_alias_safe_ret
+  0.08%  filp_flush
+  0.08%  __vdso_clock_gettime
+  0.05%  reduce_large
+  0.05%  mtree_range_walk
+  0.04%  sinf_poly
+  0.03%  xas_start
+  0.03%  vma_complete

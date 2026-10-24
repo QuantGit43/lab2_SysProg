@@ -1,0 +1,12 @@
+ 42.18%  smooth
+ 35.75%  signal_stats
+ 21.15%  count_beats
+  0.23%  __raw_callee_save___pv_queued_spin_unlock
+  0.11%  timerqueue_del
+  0.11%  native_read_msr
+  0.11%  debug_smp_processor_id
+  0.11%  __cgroup_account_cputime_field
+  0.06%  amd_pmu_addr_offset
+  0.05%  sinf_poly
+  0.05%  get_random_bytes_user
+  0.03%  _raw_spin_lock

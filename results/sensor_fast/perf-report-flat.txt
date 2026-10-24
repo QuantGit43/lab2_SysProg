@@ -1,0 +1,19 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 681  of event 'cycles:P'
+# Event count (approx.): 2043598873
+#
+# Overhead  Symbol                                IPC   [IPC Coverage]
+# ........  ....................................  ....................
+#
+    59.18%  [.] smooth                            -      -            
+    34.21%  [.] count_beats                       -      -            
+     5.69%  [.] signal_stats                      -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

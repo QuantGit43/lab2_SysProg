@@ -1,0 +1,100 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 6K of event 'cycles:P'
+# Event count (approx.): 28038445792
+#
+# Children      Self  Command    Shared Object         Symbol                              
+# ........  ........  .........  ....................  ....................................
+#
+    99.99%     0.00%  sensor_O0  sensor_O0             [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+               |--81.12%--filter_block
+               |          |          
+               |           --81.11%--smooth
+               |          
+               |--14.37%--signal_stats
+               |          
+                --4.44%--count_beats
+
+    99.99%     0.00%  sensor_O0  libc.so.6             [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+               |--81.12%--filter_block
+               |          |          
+               |           --81.11%--smooth
+               |          
+               |--14.37%--signal_stats
+               |          
+                --4.44%--count_beats
+
+    99.99%     0.00%  sensor_O0  libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               main
+               |          
+               |--81.12%--filter_block
+               |          |          
+               |           --81.11%--smooth
+               |          
+               |--14.37%--signal_stats
+               |          
+                --4.44%--count_beats
+
+    99.99%     0.03%  sensor_O0  sensor_O0             [.] main
+            |          
+             --99.95%--main
+                       |          
+                       |--81.12%--filter_block
+                       |          |          
+                       |           --81.11%--smooth
+                       |          
+                       |--14.37%--signal_stats
+                       |          
+                        --4.44%--count_beats
+
+    81.12%     0.02%  sensor_O0  sensor_O0             [.] filter_block
+            |          
+             --81.11%--filter_block
+                       smooth
+
+    81.11%    80.94%  sensor_O0  sensor_O0             [.] smooth
+            |          
+             --80.94%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       filter_block
+                       smooth
+
+    14.37%    14.34%  sensor_O0  sensor_O0             [.] signal_stats
+            |          
+             --14.34%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       signal_stats
+
+     4.44%     4.44%  sensor_O0  sensor_O0             [.] count_beats
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               count_beats
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

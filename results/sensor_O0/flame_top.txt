@@ -1,0 +1,12 @@
+ 81.56%  smooth
+ 13.51%  signal_stats
+  4.63%  count_beats
+  0.08%  srso_alias_safe_ret
+  0.02%  timekeeping_advance
+  0.02%  read_tsc
+  0.02%  rcu_sched_clock_irq
+  0.02%  native_write_msr
+  0.02%  irqentry_exit
+  0.02%  irq_work_tick
+  0.02%  hv_ce_set_next_event
+  0.02%  check_preemption_disabled

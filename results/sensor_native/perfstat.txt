@@ -1,0 +1,22 @@
+# started on Sat Oct 24 18:19:47 2026
+
+
+ Performance counter stats for '/lab/build/sensor_native 65536 5000' (5 runs):
+
+            593.27 msec task-clock                       #    0.995 CPUs utilized               ( +-  0.25% )
+                 5      context-switches                 #    8.428 /sec                        ( +-  4.90% )
+                 0      cpu-migrations                   #    0.000 /sec                      
+               336      page-faults                      #  566.356 /sec                        ( +-  0.15% )
+        2710576136      cycles                           #    4.569 GHz                         ( +-  0.18% )  (85.63%)
+          33307082      stalled-cycles-frontend          #    1.23% frontend cycles idle        ( +-  5.37% )  (85.75%)
+        6244274100      instructions                     #    2.30  insn per cycle            
+                                                  #    0.01  stalled cycles per insn     ( +-  0.07% )  (85.82%)
+        1149271141      branches                         #    1.937 G/sec                       ( +-  0.03% )  (85.82%)
+           1646471      branch-misses                    #    0.14% of all branches             ( +-  2.52% )  (85.79%)
+        2321022307      L1-dcache-loads                  #    3.912 G/sec                       ( +-  0.07% )  (85.79%)
+         374124725      L1-dcache-load-misses            #   16.12% of all L1-dcache accesses   ( +-  0.10% )  (85.40%)
+   <not supported>      LLC-loads                                                             
+   <not supported>      LLC-load-misses                                                       
+
+           0.59653 +- 0.00140 seconds time elapsed  ( +-  0.23% )
+

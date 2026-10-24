@@ -1,0 +1,22 @@
+# started on Sat Oct 24 18:19:00 2026
+
+
+ Performance counter stats for '/lab/build/sensor_O0 65536 5000' (5 runs):
+
+           5977.23 msec task-clock                       #    0.999 CPUs utilized               ( +-  1.11% )
+                 7      context-switches                 #    1.171 /sec                        ( +- 18.84% )
+                 0      cpu-migrations                   #    0.000 /sec                      
+               338      page-faults                      #   56.548 /sec                        ( +-  0.19% )
+       27182423191      cycles                           #    4.548 GHz                         ( +-  1.04% )  (85.68%)
+         185285539      stalled-cycles-frontend          #    0.68% frontend cycles idle        ( +-  6.77% )  (85.73%)
+      107358043902      instructions                     #    3.95  insn per cycle            
+                                                  #    0.00  stalled cycles per insn     ( +-  0.01% )  (85.72%)
+        4922932576      branches                         #  823.615 M/sec                       ( +-  0.01% )  (85.73%)
+           2142012      branch-misses                    #    0.04% of all branches             ( +-  0.56% )  (85.73%)
+       31756194062      L1-dcache-loads                  #    5.313 G/sec                       ( +-  0.10% )  (85.73%)
+         375896750      L1-dcache-load-misses            #    1.18% of all L1-dcache accesses   ( +-  0.04% )  (85.69%)
+   <not supported>      LLC-loads                                                             
+   <not supported>      LLC-load-misses                                                       
+
+            5.9810 +- 0.0661 seconds time elapsed  ( +-  1.11% )
+

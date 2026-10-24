@@ -1,0 +1,22 @@
+# started on Sat Oct 24 18:19:53 2026
+
+
+ Performance counter stats for '/lab/build/sensor_fast 65536 5000' (5 runs):
+
+            426.62 msec task-clock                       #    0.993 CPUs utilized               ( +-  1.20% )
+                 4      context-switches                 #    9.376 /sec                        ( +-  9.35% )
+                 0      cpu-migrations                   #    0.000 /sec                      
+               336      page-faults                      #  787.586 /sec                        ( +-  0.13% )
+        1937543999      cycles                           #    4.542 GHz                         ( +-  1.12% )  (85.64%)
+          24273321      stalled-cycles-frontend          #    1.25% frontend cycles idle        ( +-  2.45% )  (85.62%)
+        4013572200      instructions                     #    2.07  insn per cycle            
+                                                  #    0.01  stalled cycles per insn     ( +-  0.07% )  (85.62%)
+         841576654      branches                         #    1.973 G/sec                       ( +-  0.03% )  (85.65%)
+           1500419      branch-misses                    #    0.18% of all branches             ( +-  1.32% )  (85.63%)
+        2297859749      L1-dcache-loads                  #    5.386 G/sec                       ( +-  0.03% )  (85.84%)
+         376334074      L1-dcache-load-misses            #   16.38% of all L1-dcache accesses   ( +-  0.26% )  (86.01%)
+   <not supported>      LLC-loads                                                             
+   <not supported>      LLC-load-misses                                                       
+
+           0.42975 +- 0.00518 seconds time elapsed  ( +-  1.20% )
+

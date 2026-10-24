@@ -1,0 +1,8 @@
+ 94.73%  sensor_O0
+  3.14%  swapper
+  0.94%  dockerd
+  0.57%  containerd
+  0.29%  perf-exec
+  0.29%  initd
+  0.03%  perf
+  0.01%  containerd-shim

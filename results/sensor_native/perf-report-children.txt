@@ -1,0 +1,96 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 897  of event 'cycles:P'
+# Event count (approx.): 2686519276
+#
+# Children      Self  Command        Shared Object         Symbol                                       
+# ........  ........  .............  ....................  .............................................
+#
+    99.91%     0.00%  sensor_native  sensor_native         [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+               |--42.99%--filter_block (inlined)
+               |          smooth
+               |          
+               |--37.58%--signal_stats
+               |          
+                --19.12%--count_beats
+
+    99.91%     0.00%  sensor_native  libc.so.6             [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+               |--42.99%--filter_block (inlined)
+               |          smooth
+               |          
+               |--37.58%--signal_stats
+               |          
+                --19.12%--count_beats
+
+    99.91%     0.00%  sensor_native  libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               main
+               |          
+               |--42.99%--filter_block (inlined)
+               |          smooth
+               |          
+               |--37.58%--signal_stats
+               |          
+                --19.12%--count_beats
+
+    99.91%     0.11%  sensor_native  sensor_native         [.] main
+            |          
+             --99.80%--main
+                       |          
+                       |--42.99%--filter_block (inlined)
+                       |          smooth
+                       |          
+                       |--37.58%--signal_stats
+                       |          
+                        --19.12%--count_beats
+
+    42.99%     0.00%  sensor_native  sensor_native         [.] filter_block (inlined)
+            |
+            ---filter_block (inlined)
+               smooth
+
+    42.99%    42.92%  sensor_native  sensor_native         [.] smooth
+            |          
+             --42.92%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       filter_block (inlined)
+                       smooth
+
+    37.58%    37.58%  sensor_native  sensor_native         [.] signal_stats
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               signal_stats
+
+    19.12%    19.12%  sensor_native  sensor_native         [.] count_beats
+            |          
+             --19.12%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       count_beats
+
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

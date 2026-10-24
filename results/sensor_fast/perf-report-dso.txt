@@ -1,0 +1,39 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 681  of event 'cycles:P'
+# Event count (approx.): 2043598873
+#
+# Overhead  Shared Object    
+# ........  .................
+#
+    99.08%  sensor_fast      
+            |          
+            |--59.18%--smooth
+            |          filter_block (inlined)
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+            |--34.21%--count_beats
+            |          main
+            |          __libc_start_call_main
+            |          __libc_start_main_impl (inlined)
+            |          _start
+            |          
+             --5.69%--signal_stats
+                       main
+                       __libc_start_call_main
+                       __libc_start_main_impl (inlined)
+                       _start
+
+     0.83%  [kernel.kallsyms]
+     0.09%  libm.so.6        
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

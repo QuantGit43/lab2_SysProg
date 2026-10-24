@@ -1,0 +1,295 @@
+ Percent |	Source code & Disassembly of sensor_native for cycles:P (377 samples, percent: local period)
+------------------------------------------------------------------------------------------------------------
+         :
+         :
+         :
+         : 3    Disassembly of section .text:
+         :
+         : 5    0000000000001f60 <smooth>:
+         : 6    }
+         : 7    }
+         :
+         : 9    __attribute__((noinline))
+         : 10   void smooth(const float *restrict in, float *restrict out, int n)
+         : 11   {
+    0.00 :   1f60:   endbr64
+    0.00 :   1f64:   mov    rcx,rdi
+    0.00 :   1f67:   movsxd rdi,edx
+         : 15   out[0] = in[0];
+    0.00 :   1f6a:   vmovss xmm0,DWORD PTR [rcx]
+    0.00 :   1f6e:   vmovss DWORD PTR [rsi],xmm0
+         : 18   for (int i = 1; i < n - 1; i++)
+    0.00 :   1f72:   cmp    edi,0x2
+    0.00 :   1f75:   jle    22f4 <smooth+0x394>
+    0.00 :   1f7b:   lea    eax,[rdi-0x3]
+    0.00 :   1f7e:   lea    r9d,[rdi-0x2]
+    0.00 :   1f82:   cmp    eax,0xe
+    0.00 :   1f85:   jbe    235f <smooth+0x3ff>
+    0.00 :   1f8b:   vbroadcastss zmm1,DWORD PTR [rip+0x1577]        # 350c <_IO_stdin_used+0x50c>
+    0.00 :   1f95:   mov    edx,r9d
+    0.00 :   1f98:   xor    eax,eax
+    0.00 :   1f9a:   shr    edx,0x4
+    0.00 :   1f9d:   shl    rdx,0x6
+    0.00 :   1fa1:   data16 cs nop WORD PTR [rax+rax*1+0x0]
+    0.00 :   1fac:   nop    DWORD PTR [rax+0x0]
+         : 32   out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   1fb0:   vmovups zmm6,ZMMWORD PTR [rcx+rax*1]
+    5.06 :   1fb7:   vaddps zmm0,zmm6,ZMMWORD PTR [rcx+rax*1+0x4]
+    1.86 :   1fc2:   vaddps zmm0,zmm0,ZMMWORD PTR [rcx+rax*1+0x8]
+    1.07 :   1fcd:   vdivps zmm0,zmm0,zmm1
+   57.52 :   1fd3:   vmovups ZMMWORD PTR [rsi+rax*1+0x4],zmm0
+         : 38   for (int i = 1; i < n - 1; i++)
+   33.42 :   1fde:   add    rax,0x40
+    0.00 :   1fe2:   cmp    rax,rdx
+    0.00 :   1fe5:   jne    1fb0 <smooth+0x50>
+    0.00 :   1fe7:   mov    eax,r9d
+    0.00 :   1fea:   and    eax,0xfffffff0
+    0.00 :   1fed:   lea    edx,[rax+0x1]
+    0.00 :   1ff0:   test   r9b,0xf
+    0.00 :   1ff4:   je     2310 <smooth+0x3b0>
+    0.00 :   1ffa:   mov    r8d,edi
+    0.00 :   1ffd:   sub    r8d,eax
+    0.00 :   2000:   lea    r10d,[r8-0x2]
+    0.00 :   2004:   sub    r8d,0x3
+    0.00 :   2008:   cmp    r8d,0x6
+    0.00 :   200c:   jbe    2045 <smooth+0xe5>
+    0.00 :   200e:   shl    rax,0x2
+         : 54   out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2012:   vmovups ymm7,YMMWORD PTR [rcx+rax*1]
+    0.00 :   2017:   vaddps ymm0,ymm7,YMMWORD PTR [rcx+rax*1+0x4]
+    0.00 :   201d:   vaddps ymm0,ymm0,YMMWORD PTR [rcx+rax*1+0x8]
+    0.00 :   2023:   vdivps ymm0,ymm0,DWORD BCST [rip+0x14df]        # 350c <_IO_stdin_used+0x50c>
+    0.27 :   202d:   vmovups YMMWORD PTR [rsi+rax*1+0x4],ymm0
+         : 60   for (int i = 1; i < n - 1; i++)
+    0.00 :   2033:   mov    eax,r10d
+    0.00 :   2036:   and    eax,0xfffffff8
+    0.00 :   2039:   add    edx,eax
+    0.00 :   203b:   and    r10d,0x7
+    0.00 :   203f:   je     2310 <smooth+0x3b0>
+    0.00 :   2045:   movsxd r10,edx
+    0.00 :   2048:   lea    r8d,[rdx+0x1]
+    0.00 :   204c:   lea    rax,[r10*4+0x0]
+    0.00 :   2054:   lea    r11,[rcx+rax*1]
+    0.00 :   2058:   cmp    r8d,r9d
+    0.00 :   205b:   jge    21f0 <smooth+0x290>
+         : 72   out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2061:   vmovq  xmm0,QWORD PTR [r11-0x4]
+    0.00 :   2067:   vmovq  xmm2,QWORD PTR [r11]
+    0.00 :   206c:   vmovaps xmm3,XMMWORD PTR [rip+0x141c]        # 3490 <_IO_stdin_used+0x490>
+    0.00 :   2074:   lea    r10,[rax+0x8]
+    0.00 :   2078:   vmovq  xmm4,QWORD PTR [rcx+rax*1+0x4]
+    0.00 :   207e:   lea    r8d,[rdx+0x3]
+    0.00 :   2082:   vmovss xmm1,DWORD PTR [rcx+r10*1]
+    0.00 :   2088:   vaddps xmm0,xmm0,xmm2
+    0.00 :   208c:   vaddps xmm0,xmm0,xmm4
+    0.00 :   2090:   vdivps xmm0,xmm0,xmm3
+    0.00 :   2094:   vmovlps QWORD PTR [rsi+rax*1],xmm0
+         : 84   for (int i = 1; i < n - 1; i++)
+    0.00 :   2099:   cmp    r9d,r8d
+    0.00 :   209c:   jle    2340 <smooth+0x3e0>
+         : 87   out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   20a2:   lea    r8,[rcx+rax*1+0xc]
+    0.00 :   20a7:   lea    r11,[rax+0x10]
+    0.00 :   20ab:   vinsertps xmm0,xmm1,DWORD PTR [r8],0x10
+    0.00 :   20b1:   vmovq  xmm5,QWORD PTR [r8]
+    0.00 :   20b6:   lea    r8d,[rdx+0x5]
+    0.00 :   20ba:   vmovss xmm2,DWORD PTR [rcx+r11*1]
+    0.00 :   20c0:   vaddps xmm0,xmm0,xmm4
+    0.00 :   20c4:   vaddps xmm0,xmm0,xmm5
+    0.00 :   20c8:   vdivps xmm0,xmm0,xmm3
+    0.00 :   20cc:   vmovlps QWORD PTR [rsi+r10*1],xmm0
+         : 98   for (int i = 1; i < n - 1; i++)
+    0.53 :   20d2:   cmp    r9d,r8d
+    0.00 :   20d5:   jle    2320 <smooth+0x3c0>
+         : 101  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   20db:   lea    r8,[rcx+rax*1+0x14]
+    0.00 :   20e0:   lea    r10,[rax+0x18]
+    0.00 :   20e4:   vinsertps xmm0,xmm2,DWORD PTR [r8],0x10
+    0.00 :   20ea:   vmovq  xmm4,QWORD PTR [r8]
+    0.00 :   20ef:   lea    r8d,[rdx+0x7]
+    0.00 :   20f3:   vmovss xmm1,DWORD PTR [rcx+r10*1]
+    0.00 :   20f9:   vaddps xmm0,xmm0,xmm5
+    0.00 :   20fd:   vaddps xmm0,xmm0,xmm4
+    0.00 :   2101:   vdivps xmm0,xmm0,xmm3
+    0.00 :   2105:   vmovlps QWORD PTR [rsi+r11*1],xmm0
+         : 112  for (int i = 1; i < n - 1; i++)
+    0.00 :   210b:   cmp    r9d,r8d
+    0.00 :   210e:   jle    2350 <smooth+0x3f0>
+         : 115  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2114:   lea    r8,[rcx+rax*1+0x1c]
+    0.00 :   2119:   lea    r11,[rax+0x20]
+    0.00 :   211d:   vinsertps xmm0,xmm1,DWORD PTR [r8],0x10
+    0.00 :   2123:   vmovq  xmm5,QWORD PTR [r8]
+    0.00 :   2128:   lea    r8d,[rdx+0x9]
+    0.00 :   212c:   vmovss xmm2,DWORD PTR [rcx+r11*1]
+    0.00 :   2132:   vaddps xmm0,xmm0,xmm4
+    0.00 :   2136:   vaddps xmm0,xmm0,xmm5
+    0.00 :   213a:   vdivps xmm0,xmm0,xmm3
+    0.00 :   213e:   vmovlps QWORD PTR [rsi+r10*1],xmm0
+         : 126  for (int i = 1; i < n - 1; i++)
+    0.00 :   2144:   cmp    r9d,r8d
+    0.00 :   2147:   jle    236b <smooth+0x40b>
+         : 129  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   214d:   lea    r8,[rcx+rax*1+0x24]
+    0.00 :   2152:   lea    r10,[rax+0x28]
+    0.00 :   2156:   vinsertps xmm0,xmm2,DWORD PTR [r8],0x10
+    0.00 :   215c:   vmovq  xmm4,QWORD PTR [r8]
+    0.00 :   2161:   lea    r8d,[rdx+0xb]
+    0.00 :   2165:   vmovss xmm1,DWORD PTR [rcx+r10*1]
+    0.00 :   216b:   vaddps xmm0,xmm0,xmm5
+    0.00 :   216f:   vaddps xmm0,xmm0,xmm4
+    0.00 :   2173:   vdivps xmm0,xmm0,xmm3
+    0.00 :   2177:   vmovlps QWORD PTR [rsi+r11*1],xmm0
+         : 140  for (int i = 1; i < n - 1; i++)
+    0.00 :   217d:   cmp    r9d,r8d
+    0.00 :   2180:   jle    232f <smooth+0x3cf>
+         : 143  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2186:   lea    r8,[rcx+rax*1+0x2c]
+    0.00 :   218b:   lea    r11,[rax+0x30]
+    0.00 :   218f:   vinsertps xmm0,xmm1,DWORD PTR [r8],0x10
+    0.00 :   2195:   vmovq  xmm5,QWORD PTR [r8]
+    0.00 :   219a:   lea    r8d,[rdx+0xd]
+    0.00 :   219e:   vmovss xmm2,DWORD PTR [rcx+r11*1]
+    0.00 :   21a4:   vaddps xmm0,xmm0,xmm4
+    0.00 :   21a8:   vaddps xmm0,xmm0,xmm5
+    0.00 :   21ac:   vdivps xmm0,xmm0,xmm3
+    0.00 :   21b0:   vmovlps QWORD PTR [rsi+r10*1],xmm0
+         : 154  for (int i = 1; i < n - 1; i++)
+    0.00 :   21b6:   cmp    r9d,r8d
+    0.00 :   21b9:   jle    237a <smooth+0x41a>
+         : 157  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   21bf:   vinsertps xmm0,xmm2,DWORD PTR [rcx+rax*1+0x34],0x10
+    0.00 :   21c7:   vmovq  xmm1,QWORD PTR [rcx+rax*1+0x34]
+         : 160  for (int i = 1; i < n - 1; i++)
+    0.00 :   21cd:   add    edx,0xe
+    0.00 :   21d0:   movsxd r10,edx
+    0.00 :   21d3:   lea    r8d,[rdx+0x1]
+         : 164  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   21d7:   vaddps xmm0,xmm0,xmm5
+    0.00 :   21db:   vaddps xmm0,xmm0,xmm1
+    0.00 :   21df:   vdivps xmm0,xmm0,xmm3
+    0.00 :   21e3:   vmovlps QWORD PTR [rsi+r11*1],xmm0
+         : 169  for (int i = 1; i < n - 1; i++)
+    0.00 :   21e9:   nop    DWORD PTR [rax+0x0]
+         : 171  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   21f0:   lea    rax,[r10*4+0x0]
+    0.00 :   21f8:   vmovss xmm2,DWORD PTR [rip+0x130c]        # 350c <_IO_stdin_used+0x50c>
+         : 174  for (int i = 1; i < n - 1; i++)
+    0.00 :   2200:   lea    r9d,[rdi-0x1]
+         : 176  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2204:   vmovss xmm0,DWORD PTR [rcx+rax*1]
+    0.00 :   2209:   vaddss xmm1,xmm0,DWORD PTR [rcx+rax*1-0x4]
+    0.27 :   220f:   vmovss xmm3,DWORD PTR [rcx+rax*1+0x4]
+    0.00 :   2215:   vaddss xmm1,xmm1,xmm3
+    0.00 :   2219:   vdivss xmm1,xmm1,xmm2
+    0.00 :   221d:   vmovss DWORD PTR [rsi+rax*1],xmm1
+         : 183  for (int i = 1; i < n - 1; i++)
+    0.00 :   2222:   cmp    r9d,r8d
+    0.00 :   2225:   jle    2310 <smooth+0x3b0>
+         : 186  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   222b:   vmovss xmm1,DWORD PTR [rcx+rax*1+0x8]
+    0.00 :   2231:   vaddss xmm0,xmm0,xmm3
+         : 189  for (int i = 1; i < n - 1; i++)
+    0.00 :   2235:   lea    r10d,[rdx+0x2]
+         : 191  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2239:   vaddss xmm0,xmm0,xmm1
+    0.00 :   223d:   vdivss xmm0,xmm0,xmm2
+    0.00 :   2241:   vmovss DWORD PTR [rsi+rax*1+0x4],xmm0
+         : 195  for (int i = 1; i < n - 1; i++)
+    0.00 :   2247:   cmp    r9d,r10d
+    0.00 :   224a:   jle    2310 <smooth+0x3b0>
+         : 198  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2250:   vaddss xmm0,xmm1,DWORD PTR [rcx+rax*1+0x4]
+    0.00 :   2256:   vmovss xmm3,DWORD PTR [rcx+rax*1+0xc]
+         : 201  for (int i = 1; i < n - 1; i++)
+    0.00 :   225c:   lea    r8d,[rdx+0x3]
+         : 203  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2260:   vaddss xmm0,xmm0,xmm3
+    0.00 :   2264:   vdivss xmm0,xmm0,xmm2
+    0.00 :   2268:   vmovss DWORD PTR [rsi+rax*1+0x8],xmm0
+         : 207  for (int i = 1; i < n - 1; i++)
+    0.00 :   226e:   cmp    r9d,r8d
+    0.00 :   2271:   jle    2310 <smooth+0x3b0>
+         : 210  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2277:   vmovss xmm0,DWORD PTR [rcx+rax*1+0x10]
+    0.00 :   227d:   vaddss xmm1,xmm1,xmm3
+         : 213  for (int i = 1; i < n - 1; i++)
+    0.00 :   2281:   lea    r10d,[rdx+0x4]
+         : 215  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2285:   vaddss xmm1,xmm1,xmm0
+    0.00 :   2289:   vdivss xmm1,xmm1,xmm2
+    0.00 :   228d:   vmovss DWORD PTR [rsi+rax*1+0xc],xmm1
+         : 219  for (int i = 1; i < n - 1; i++)
+    0.00 :   2293:   cmp    r9d,r10d
+    0.00 :   2296:   jle    2310 <smooth+0x3b0>
+         : 222  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   2298:   vmovss xmm1,DWORD PTR [rcx+rax*1+0x14]
+    0.00 :   229e:   vaddss xmm0,xmm0,xmm3
+         : 225  for (int i = 1; i < n - 1; i++)
+    0.00 :   22a2:   lea    r8d,[rdx+0x5]
+         : 227  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   22a6:   vaddss xmm0,xmm0,xmm1
+    0.00 :   22aa:   vdivss xmm0,xmm0,xmm2
+    0.00 :   22ae:   vmovss DWORD PTR [rsi+rax*1+0x10],xmm0
+         : 231  for (int i = 1; i < n - 1; i++)
+    0.00 :   22b4:   cmp    r9d,r8d
+    0.00 :   22b7:   jle    2310 <smooth+0x3b0>
+         : 234  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   22b9:   vaddss xmm1,xmm1,DWORD PTR [rcx+rax*1+0x10]
+    0.00 :   22bf:   vmovss xmm0,DWORD PTR [rcx+rax*1+0x18]
+         : 237  for (int i = 1; i < n - 1; i++)
+    0.00 :   22c5:   add    edx,0x6
+         : 239  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   22c8:   vaddss xmm1,xmm1,xmm0
+    0.00 :   22cc:   vdivss xmm1,xmm1,xmm2
+    0.00 :   22d0:   vmovss DWORD PTR [rsi+rax*1+0x14],xmm1
+         : 243  for (int i = 1; i < n - 1; i++)
+    0.00 :   22d6:   cmp    r9d,edx
+    0.00 :   22d9:   jle    2310 <smooth+0x3b0>
+         : 246  out[i] = (in[i - 1] + in[i] + in[i + 1]) / 3.0f;
+    0.00 :   22db:   vaddss xmm0,xmm0,DWORD PTR [rcx+rax*1+0x14]
+    0.00 :   22e1:   vaddss xmm0,xmm0,DWORD PTR [rcx+rax*1+0x1c]
+    0.00 :   22e7:   vdivss xmm0,xmm0,xmm2
+    0.00 :   22eb:   vmovss DWORD PTR [rsi+rax*1+0x18],xmm0
+         : 251  for (int i = 1; i < n - 1; i++)
+    0.00 :   22f1:   vzeroupper
+         : 253  out[n - 1] = in[n - 1];
+    0.00 :   22f4:   lea    rax,[rdi*4-0x4]
+    0.00 :   22fc:   vmovss xmm0,DWORD PTR [rcx+rax*1]
+    0.00 :   2301:   vmovss DWORD PTR [rsi+rax*1],xmm0
+         : 257  }
+    0.00 :   2306:   ret
+    0.00 :   2307:   nop    WORD PTR [rax+rax*1+0x0]
+    0.00 :   2310:   vzeroupper
+    0.00 :   2313:   jmp    22f4 <smooth+0x394>
+    0.00 :   2315:   data16 cs nop WORD PTR [rax+rax*1+0x0]
+         : 263  for (int i = 1; i < n - 1; i++)
+    0.00 :   2320:   add    edx,0x4
+    0.00 :   2323:   movsxd r10,edx
+    0.00 :   2326:   lea    r8d,[rdx+0x1]
+    0.00 :   232a:   jmp    21f0 <smooth+0x290>
+    0.00 :   232f:   add    edx,0xa
+    0.00 :   2332:   movsxd r10,edx
+    0.00 :   2335:   lea    r8d,[rdx+0x1]
+    0.00 :   2339:   jmp    21f0 <smooth+0x290>
+    0.00 :   233e:   xchg   ax,ax
+    0.00 :   2340:   add    edx,0x2
+    0.00 :   2343:   movsxd r10,edx
+    0.00 :   2346:   lea    r8d,[rdx+0x1]
+    0.00 :   234a:   jmp    21f0 <smooth+0x290>
+    0.00 :   234f:   nop
+    0.00 :   2350:   add    edx,0x6
+    0.00 :   2353:   movsxd r10,edx
+    0.00 :   2356:   lea    r8d,[rdx+0x1]
+    0.00 :   235a:   jmp    21f0 <smooth+0x290>
+    0.00 :   235f:   xor    eax,eax
+    0.00 :   2361:   mov    edx,0x1
+    0.00 :   2366:   jmp    1ffa <smooth+0x9a>
+    0.00 :   236b:   add    edx,0x8
+    0.00 :   236e:   movsxd r10,edx
+    0.00 :   2371:   lea    r8d,[rdx+0x1]
+    0.00 :   2375:   jmp    21f0 <smooth+0x290>
+    0.00 :   237a:   add    edx,0xc
+    0.00 :   237d:   movsxd r10,edx
+    0.00 :   2380:   lea    r8d,[rdx+0x1]
+    0.00 :   2384:   jmp    21f0 <smooth+0x290>
